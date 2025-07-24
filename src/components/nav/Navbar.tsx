@@ -1,24 +1,31 @@
-import { useNavigate } from 'react-router-dom'
-import { Button } from '@/components/ui/button.tsx'
-import { Car } from 'lucide-react'
+import { useLocation, useNavigate } from 'react-router-dom'
+import { Button } from '@/components/ui/button'
+import { WEB_NAME } from '@/constants'
+import Logos from '@/assets/brand/Logos'
 
 export default function Navbar() {
   const navigate = useNavigate()
+  const location = useLocation()
+  const isOnDashboard = location.pathname === '/vehicles'
+
+  const handleButtonClick = () => {
+    if (isOnDashboard) {
+      navigate('/')
+    } else {
+      navigate('/vehicles')
+    }
+  }
+
   return (
-    <nav className="border-border bg-card border-b shadow-sm">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <div className="bg-primary/10 rounded-lg p-2">
-                <Car className="text-primary h-6 w-6" />
-              </div>
-              <span className="text-foreground text-xl font-bold">VehicleTracker</span>
-            </div>
-            <Button onClick={() => navigate('/dashboard')} size="lg">
-              Access Dashboard
-            </Button>
-          </div>
+    <nav className="border-border bg-card fixed z-20 w-full border-b shadow-sm">
+      <div className="container mx-auto px-4 py-4">
+        <div className="flex items-center justify-between">
+          <Logos webName={WEB_NAME} />
+          <Button onClick={handleButtonClick} size="lg" className="cursor-pointer">
+            {!isOnDashboard ? 'View Vehicles' : 'Back Home'}
+          </Button>
         </div>
-      </nav>
+      </div>
+    </nav>
   )
 }
