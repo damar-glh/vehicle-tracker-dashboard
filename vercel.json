@@ -1,34 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/vehicles",
-      "destination": "http://128.199.106.149/vehicles"
-    },
-    {
-      "source": "/vehicles/:id",
-      "destination": "http://128.199.106.149/vehicles/:id",
-    {
       "source": "/(.*)",
       "destination": "/index.html"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "*"
-        },
-        {
-          "key": "Access-Control-Allow-Methods",
-          "value": "GET, POST, PUT, DELETE, OPTIONS"
-        },
-        {
-          "key": "Access-Control-Allow-Headers",
-          "value": "Content-Type, Authorization"
-        }
-      ]
     }
   ]
 }
