@@ -1,21 +1,12 @@
-import { WEB_NAME } from '@/constants'
-import Logo from 'public/car-front.svg'
+import { CarFront } from 'lucide-react'
 
-export const BRAND_LOGO = {
-  name: WEB_NAME,
-  logo: Logo,
-  alt: 'Vitracs Logo',
-  width: 150,
-  height: 50,
-}
-
-export default function BrandLogo() {
+export default function Logos({ webName }: { webName: string }) {
   return (
-    <img
-      src={BRAND_LOGO.logo}
-      alt={BRAND_LOGO.alt}
-      width={BRAND_LOGO.width}
-      height={BRAND_LOGO.height}
-    />
+    <div className="flex items-center gap-2">
+      <div className="bg-primary/10 rounded-lg p-2">
+        <CarFront className="text-primary h-6 w-6" />
+      </div>
+      <span className="text-foreground text-xl font-bold">{webName}</span>
+    </div>
   )
 }
