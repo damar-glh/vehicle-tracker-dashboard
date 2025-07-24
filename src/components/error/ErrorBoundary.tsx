@@ -13,7 +13,7 @@ export default function ErrorBoundary() {
       case 403:
         return 'Forbidden'
       case 500:
-        return 'Server Error'
+        return 'Server error'
       default:
         return 'Something went wrong'
     }
