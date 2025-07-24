@@ -1,23 +1,20 @@
 import { createBrowserRouter } from 'react-router'
-import SidebarLayout from '@/layouts/SidebarLayout'
-import Dashboard from '@/pages/Dashboard'
+import Home from '@/pages/Home'
 import Vehicles from '@/pages/Vehicles'
 import VehicleDetails from '@/pages/VehicleDetails'
-import RouteErrorWrapper from '@/components/Error/RouteErrorWrapper'
+import RouteErrorWrapper from '@/components/error/RouteErrorWrapper'
+import DefaultLayout from '@/layouts/DefaultLayout.tsx'
 
 export default createBrowserRouter([
   {
     path: '/',
-    Component: SidebarLayout,
+    Component: DefaultLayout,
     ErrorBoundary: RouteErrorWrapper,
     children: [
-      { index: true, Component: Dashboard },
+      { index: true, Component: Home },
       { path: 'vehicles', Component: Vehicles },
       { path: 'vehicles/:vehicleId', Component: VehicleDetails },
     ],
   },
-  {
-    path: '*',
-    Component: RouteErrorWrapper,
-  },
+  { path: '*', Component: RouteErrorWrapper },
 ])
