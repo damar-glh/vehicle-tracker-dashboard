@@ -19,6 +19,11 @@ import type { User } from '@/types'
 
 export function NavUser({ user }: { user: User }) {
   const { isMobile } = useSidebar()
+  const avatarFallback = user.name
+    .split(' ')
+    .map(word => word[0])
+    .filter((_, i, arr) => i === 0 || i === arr.length - 1)
+    .join('')
   return (
     <SidebarMenu>
       <SidebarMenuItem>
@@ -29,7 +34,7 @@ export function NavUser({ user }: { user: User }) {
               className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground">
               <Avatar className="h-8 w-8 rounded-lg">
                 <AvatarImage src={user.avatar} alt={user.name} />
-                <AvatarFallback className="rounded-lg">CN</AvatarFallback>
+                <AvatarFallback className="rounded-lg">{avatarFallback}</AvatarFallback>
               </Avatar>
               <div className="grid flex-1 text-left text-sm leading-tight">
                 <span className="truncate font-medium">{user.name}</span>

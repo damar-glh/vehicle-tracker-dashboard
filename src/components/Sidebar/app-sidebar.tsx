@@ -11,6 +11,7 @@ import {
 } from '@/components/ui/sidebar'
 import { sidebarItems } from '@/components/Sidebar/data/sidebar-items'
 import { brandData } from '@/components/Sidebar/data/brand-data'
+import { dumyUser } from '@/components/Sidebar/data/dumy-user'
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
@@ -22,14 +23,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavMain SidebarItems={sidebarItems} />
       </SidebarContent>
       <SidebarFooter>
-        <NavUser
-          user={{
-            name: 'John Doe',
-            email: 'johndoe@gmail.com',
-            avatar: 'https://avatars.githubusercontent.com/u/1?v=4',
-            role: 'Admin',
-          }}
-        />
+        <NavUser user={dumyUser} />
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>
