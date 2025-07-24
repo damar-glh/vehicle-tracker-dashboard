@@ -34,19 +34,19 @@ const Vehicles = () => {
   }
 
   return (
-    <section className="bg-background text-text flex min-h-screen w-full flex-col items-start justify-center">
+    <section className="bg-background text-text flex min-h-screen w-full flex-col items-start justify-center py-24">
       <div className="container mx-auto flex flex-col gap-6">
         <div className="flex w-full items-start justify-between gap-4">
           <div className="flex flex-col gap-6">
             <h1 className="text-text text-2xl font-bold md:text-4xl">Vehicle Tracker Dashboard</h1>
-            <p className="text-text max-w-4xl text-base md:text-xl">
+            <p className="text-muted-foreground max-w-4xl text-base md:text-xl">
               Monitor, track and manage your entire fleet with real-time telemetry data, advanced
               analytics and comprehensive reporting tools.
             </p>
           </div>
-          <div className="bg-primary hidden items-center justify-center gap-2 rounded-full border p-4 md:flex">
-            <CalendarDays className="text-primary h-6 w-6" />
-            <p className="text-text text-base font-semibold">
+          <div className="bg-primary text-background hidden items-center justify-center gap-2 rounded-full border p-4 md:flex">
+            <CalendarDays className="h-6 w-6" />
+            <p className="text-base font-semibold">
               {new Date().toLocaleDateString('id-ID', {
                 year: 'numeric',
                 month: 'long',
@@ -96,7 +96,7 @@ const Vehicles = () => {
                 <CardContent className="p-12 text-center">
                   <Car className="text-text mx-auto mb-4 h-12 w-12" />
                   <h3 className="text-text mb-2 text-lg font-semibold">No vehicles found</h3>
-                  <p className="text-text">
+                  <p className="text-muted-foreground">
                     {hasActiveFilters
                       ? 'Try adjusting your search terms or filters'
                       : 'No vehicles available'}

@@ -36,7 +36,7 @@ const Pagination = ({
           <ChevronLeft className="h-4 w-4" />
           Previous
         </Button>
-        <div className="flex items-center gap-1">
+        <div className="hidden items-center gap-1 md:flex">
           {getPageNumbers().map(pageNum => (
             <Button
               key={pageNum}
