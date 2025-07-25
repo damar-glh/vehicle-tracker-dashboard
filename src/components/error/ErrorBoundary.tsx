@@ -1,6 +1,7 @@
 import { AlertTriangle, Home } from 'lucide-react'
 import { Button } from '@/components/ui/button.tsx'
 import { useNavigate } from 'react-router-dom'
+import { Card, CardContent } from '@/components/ui/card.tsx'
 
 export default function ErrorBoundary() {
   const navigate = useNavigate()
@@ -37,18 +38,24 @@ export default function ErrorBoundary() {
   }
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center gap-6">
-      <AlertTriangle className="h-20 w-20 text-red-600" />
-      <h1 className="text-4xl font-bold md:text-7xl">{getErrorTitle()}</h1>
-      <p className="text-muted-foreground mx-auto max-w-2xl text-base md:text-xl">
-        {getErrorDescription()}
-      </p>
-      <Button
-        onClick={() => navigate('/')}
-        size="lg"
-        className="cursor-pointer px-8 py-6 text-base">
-        <Home className="h-4 w-4" /> Go to Home
-      </Button>
+    <div className="bg-background text-text flex min-h-screen w-full flex-col items-start justify-center">
+      <div className="container mx-auto text-center">
+        <Card>
+          <CardContent className="p-12 text-center">
+            <AlertTriangle className="mx-auto mb-6 h-16 w-16 text-red-600" />
+            <h1 className="mx-auto mb-4 text-2xl font-bold md:text-4xl">{getErrorTitle()}</h1>
+            <p className="text-muted-foreground mx-auto mb-6 max-w-md text-base">
+              {getErrorDescription()}
+            </p>
+            <Button
+              onClick={() => navigate('/')}
+              size="lg"
+              className="mx-auto cursor-pointer px-8 py-6 text-base">
+              <Home className="h-4 w-4" /> Go to Home
+            </Button>
+          </CardContent>
+        </Card>
+      </div>
     </div>
   )
 }

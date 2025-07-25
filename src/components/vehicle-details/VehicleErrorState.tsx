@@ -1,8 +1,6 @@
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { Car } from 'lucide-react'
-import { colorMap } from '@/components/vehicles/color'
-import VehicleHeader from '@/components/vehicle-details/VehicleHeader'
+import { CarFront } from 'lucide-react'
 
 interface VehicleErrorStateProps {
   onBackClick: () => void
@@ -10,19 +8,18 @@ interface VehicleErrorStateProps {
 
 const VehicleErrorState = ({ onBackClick }: VehicleErrorStateProps) => {
   return (
-    <div className="from-background to-secondary/20 min-h-screen bg-gradient-to-br">
-      <VehicleHeader vehicleId="Unknown" onBackClick={onBackClick} name={''} />
-
-      <div className="container mx-auto px-4 py-12">
-        <Card className={`${colorMap.error.bg} border-l-4 border-l-red-500`}>
+    <div className="bg-background text-text flex min-h-screen w-full flex-col items-start justify-center">
+      <div className="container mx-auto px-4">
+        <Card>
           <CardContent className="p-12 text-center">
-            <Car className="text-muted-foreground mx-auto mb-6 h-16 w-16" />
-            <h3 className="mb-4 text-2xl font-bold">Vehicle Not Found</h3>
-            <p className="text-muted-foreground mx-auto mb-6 max-w-md">
-              The requested vehicle could not be found or does not exist in our system.
+            <CarFront className="text-muted-foreground mx-auto mb-6 h-16 w-16" />
+            <h3 className="mb-4 text-2xl font-bold md:text-4xl">Vehicle Not Found</h3>
+            <p className="text-muted-foreground mx-auto mb-6 max-w-md text-base">
+              The requested vehicle could not be found or does not exist in our system. Please check
+              the vehicle ID or try again later.
             </p>
             <Button onClick={onBackClick} size="lg" className="px-8">
-              Return to Dashboard
+              Return to Vehicles
             </Button>
           </CardContent>
         </Card>
