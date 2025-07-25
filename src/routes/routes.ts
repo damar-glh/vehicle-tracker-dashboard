@@ -13,7 +13,7 @@ export default createBrowserRouter([
     children: [
       { index: true, Component: Home },
       { path: 'vehicles', Component: Vehicles },
-      { path: 'vehicles/:vehicleId', Component: VehicleDetails },
+      { path: 'vehicles/:id', Component: VehicleDetails },
     ],
   },
   { path: '*', Component: RouteErrorWrapper },

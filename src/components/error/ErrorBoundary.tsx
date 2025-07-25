@@ -1,7 +1,9 @@
-import { Link } from 'react-router-dom'
 import { AlertTriangle, Home } from 'lucide-react'
+import { Button } from '@/components/ui/button.tsx'
+import { useNavigate } from 'react-router-dom'
 
 export default function ErrorBoundary() {
+  const navigate = useNavigate()
   let errorStatus: number | undefined
 
   const getErrorTitle = () => {
@@ -37,13 +39,16 @@ export default function ErrorBoundary() {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center gap-6">
       <AlertTriangle className="h-20 w-20 text-red-600" />
-      <h1 className="text-5xl font-black">{getErrorTitle()}</h1>
-      <p className="text-base">{getErrorDescription()}</p>
-      <Link
-        to="/"
-        className="inline-flex h-10 items-center gap-3 rounded-md bg-gray-900 px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:ring-1 focus-visible:ring-gray-950 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300">
+      <h1 className="text-4xl font-bold md:text-7xl">{getErrorTitle()}</h1>
+      <p className="text-muted-foreground mx-auto max-w-2xl text-base md:text-xl">
+        {getErrorDescription()}
+      </p>
+      <Button
+        onClick={() => navigate('/')}
+        size="lg"
+        className="cursor-pointer px-8 py-6 text-base">
         <Home className="h-4 w-4" /> Go to Home
-      </Link>
+      </Button>
     </div>
   )
 }

@@ -32,18 +32,18 @@ export const useVehicleStore = create<VehicleStore>(set => ({
     set({ loading: true, error: null })
     try {
       const apiDetail = await fetchVehicleDetail(id)
+      console.log(apiDetail)
       const vehicleDetail: VehicleDetail = {
         id: apiDetail.id,
         name: apiDetail.name,
-        status: apiDetail.status,
-        speed: apiDetail.speed,
-        updated_at: apiDetail.updated_at,
         odometer: apiDetail.odometer,
         fuel_level: apiDetail.fuel_level,
         timestamp: apiDetail.timestamp,
         latitude: apiDetail.latitude,
         longitude: apiDetail.longitude,
+        speed: apiDetail.speed,
       }
+      console.log(vehicleDetail)
       set({ currentVehicle: vehicleDetail, loading: false })
     } catch (error) {
       set({

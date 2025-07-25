@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { API_URL } from '@/constants'
+import { API_URL, API_VEHICLES, API_VEHICLE_DETAIL } from '@/constants'
 import type { Vehicle, VehicleDetail } from '@/types/vehicle.ts'
 
 export const apiClient = axios.create({
@@ -21,7 +21,7 @@ const handleError = (error: unknown, message: string) => {
 
 export const fetchVehicles = async (): Promise<Vehicle[]> => {
   try {
-    const response = await apiClient.get('/vehicles')
+    const response = await apiClient.get(API_VEHICLES)
     return response.data
   } catch (error) {
     handleError(error, 'Failed to fetch vehicles')
@@ -34,7 +34,7 @@ export const fetchVehicleDetail = async (id: string): Promise<VehicleDetail> => 
     throw new Error('Vehicle ID is required to fetch details')
   }
   try {
-    const response = await apiClient.get(`/vehicles/${id}`)
+    const response = await apiClient.get(`${API_VEHICLE_DETAIL}/${id}`)
     return response.data
   } catch (error) {
     handleError(error, `Failed to fetch vehicle detail for ID: ${id}`)

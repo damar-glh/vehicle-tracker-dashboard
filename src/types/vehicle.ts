@@ -1,5 +1,5 @@
 export interface Vehicle {
-  id: string
+  id: number
   name: string
   status: 'ACTIVE' | 'INACTIVE' | 'MAINTENANCE'
   speed: number
@@ -9,14 +9,12 @@ export interface Vehicle {
 export interface VehicleDetail {
   id: string
   name: string
-  status: 'ACTIVE' | 'INACTIVE' | 'MAINTENANCE'
+  odometer: number
+  fuel_level: number
+  timestamp: string
+  latitude: number
+  longitude: number
   speed: number
-  updated_at: string
-  odometer?: number
-  fuel_level?: number
-  timestamp?: string
-  latitude?: number
-  longitude?: number
 }
 
 export interface VehicleStore {
